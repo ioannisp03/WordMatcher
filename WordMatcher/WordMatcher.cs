@@ -16,33 +16,45 @@ namespace WordUnscrambler
 
             foreach (string scramble in scrambledWords)
             {
-                char[] CharScramble = scramble.ToCharArray();
-                //separating each words from the scramble array into characters 
-                //not done
+                char[] charScramble = scramble.ToCharArray();
 
                 foreach (string word in wordList)
                 {
-                    char[] CharWord = word.ToCharArray();
+                    char[] charWord = word.ToCharArray();
 
-                    //separating each words from the wordList array into characters 
-                    //not done
+                    if (charScramble.Length == charWord.Length)
+                    {
+                        Array.Sort(charScramble);
+                        Array.Sort(charWord);
+                        
 
+                        bool wordsMatch = true;
+
+                        for (int i = 0; i < charScramble.Length; i++)
+                        {
+                            if ()
+                        }
+
+                        if (wordsMatch)
+                        {
+                            MatchedWord matchedWord = BuildMatchedWord(scramble, word);
+                            matchedWords.Add(matchedWord); // Add the matched word to the list
+                        }
+                    }
                 }
             }
-
-            // Implement code here.
-            // Work with "scrambledWords" and "matchedWords".
 
             MatchedWord BuildMatchedWord(string scrambledWord, string word)
             {
                 // Build a matched-word object here, so that you can return it.
+                MatchedWord matchedWord = new MatchedWord();
 
                 //return matchedWord;
                 return new MatchedWord();  // Delete this line when done.
             }
 
             return matchedWords;
-        } 
+        }
     }
 
 }
