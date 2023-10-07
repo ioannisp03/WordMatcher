@@ -11,7 +11,20 @@ namespace WordUnscrambler
     {
         public string[] Read(string filename)
         {
-            // Your Code here!
+
+            try
+            {
+                // Read all lines inside the files
+                return File.ReadAllLines(filename);
+            }
+
+            //Catch any input/output errors
+            catch (IOException e)
+            {
+                Console.WriteLine(e.Message);
+
+            }
+
 
             return null;
         }
