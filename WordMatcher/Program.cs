@@ -58,6 +58,27 @@ namespace WordUnscrambler
 
         private static void ExecuteScrambledWordsManualEntryScenario()
         {
+            while (true)
+            {
+               
+                Console.WriteLine("Enter values, separated by comas:");
+                string userInput = Console.ReadLine();
+
+                // Split the user input into strings
+                string[] inputStrings = userInput.Split(',');
+
+                Console.WriteLine("Would you like to continue? Y/N");
+                string continueOption = Console.ReadLine().ToUpper();//read the input and converts it Uppercase value 
+                if (continueOption == "N") {
+                    break;
+                }
+                else if (continueOption !="Y")
+                {
+                    Console.WriteLine("Invalid values please try again");
+                }
+                
+            }
+
         }
 
         private static void DisplayMatchedUnscrambledWords(string[] scrambledWords)
