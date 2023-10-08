@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Globalization;
+using System.IO;
 
 namespace WordUnscrambler
 {
-    //Ioannis P is here
-    //zachary was here
     class Program
     {
         private static readonly FileReader _fileReader = new FileReader();
@@ -17,6 +16,11 @@ namespace WordUnscrambler
 
         static void Main(string[] args)
         {
+            String filepath = @"C:\Users\ipana\OneDrive\Desktop\CompSCi\Semester_3\.NET\LABS\lab-5\WordMatcher\WordMatcher\bin\wordlist.txt";
+            if (File.Exists(filepath))
+            {
+                Console.WriteLine("Exists");
+            }
             try
             {
                 Console.WriteLine("Enter scrambled word(s) manually or as a file: F - file / M - manual");
@@ -58,36 +62,38 @@ namespace WordUnscrambler
 
         private static void ExecuteScrambledWordsManualEntryScenario()
         {
-            while (true)
-            {
-               
-                Console.WriteLine("Enter values, separated by comas:");
-                string userInput = Console.ReadLine();
+            string userInput = Console.ReadLine().ToLower();
 
-                // Split the user input into strings
-                string[] inputStrings = userInput.Split(',');
+            // Split the user input into strings
+            string[] inputStrings = userInput.Split(',');
 
-                Console.WriteLine("Would you like to continue? Y/N");
-                string continueOption = Console.ReadLine().ToUpper();//read the input and converts it Uppercase value 
-                if (continueOption == "N") {
-                    break;
-                }
-                else if (continueOption !="Y")
-                {
-                    Console.WriteLine("Invalid values please try again");
-                }
-                
-            }
+
+            //send the array
+            DisplayMatchedUnscrambledWords(inputStrings);
+
 
         }
 
         private static void DisplayMatchedUnscrambledWords(string[] scrambledWords)
         {
             //read the list of words from the system file. 
-            string[] wordList = _fileReader.Read("wordlist.txt");
+            string[] wordList = _fileReader.Read(@"C:\Users\ipana\OneDrive\Desktop\CompSCi\Semester_3\.NET\LABS\lab-5\WordMatcher\WordMatcher\bin\wordlist.txt");
 
-            //call a word matcher method to get a list of structs of matched words.
             List<MatchedWord> matchedWords = _wordMatcher.Match(scrambledWords, wordList);
+
+            if (matchedWords.Count == 0)
+            {
+                Console.WriteLine("No matching words found");
+
+            }
+            else
+            {
+                foreach (var matchedWord in matchedWords)
+                {
+                    Console.WriteLine($"Scrambled: {matchedWord.ScrambledWord}, Word: {matchedWord.Word}");
+
+                }
+            }
         }
     }
 }

@@ -21,7 +21,8 @@ namespace WordUnscrambler
             //Catch any input/output errors
             catch (IOException e)
             {
-                Console.WriteLine(e.Message);
+                
+                Console.WriteLine("Error reading file: " + e.Message);
 
             }
 

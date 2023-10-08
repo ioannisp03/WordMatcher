@@ -53,6 +53,7 @@ namespace WordUnscrambler
                 MatchedWord matchedWord = new MatchedWord();
                 matchedWord.ScrambledWord = scrambledWord;
                 matchedWord.Word = word; ;
+                matchedWords.Add(matchedWord); 
 
                 return matchedWord;
                
