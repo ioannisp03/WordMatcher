@@ -27,18 +27,21 @@ namespace WordUnscrambler
                         Array.Sort(charScramble);
                         Array.Sort(charWord);
                         
-
                         bool wordsMatch = true;
 
                         for (int i = 0; i < charScramble.Length; i++)
                         {
-                            if ()
+                            if (charScramble[i] != charWord[i])
+                            {
+                                wordsMatch = false;
+                                break;
+                            }
                         }
 
                         if (wordsMatch)
                         {
-                            MatchedWord matchedWord = BuildMatchedWord(scramble, word);
-                            matchedWords.Add(matchedWord); // Add the matched word to the list
+                            BuildMatchedWord(scramble, word);
+                            
                         }
                     }
                 }
@@ -48,9 +51,11 @@ namespace WordUnscrambler
             {
                 // Build a matched-word object here, so that you can return it.
                 MatchedWord matchedWord = new MatchedWord();
+                matchedWord.ScrambledWord = scrambledWord;
+                matchedWord.Word = word; ;
 
-                //return matchedWord;
-                return new MatchedWord();  // Delete this line when done.
+                return matchedWord;
+               
             }
 
             return matchedWords;
