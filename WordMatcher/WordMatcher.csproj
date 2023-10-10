@@ -47,10 +47,25 @@
     <Compile Include="MatchedWord.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\String.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>String.resx</DependentUpon>
+    </Compile>
     <Compile Include="WordMatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\String.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>String.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\string.fr-CA.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>string.fr-CA.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
