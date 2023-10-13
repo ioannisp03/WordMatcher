@@ -22,41 +22,24 @@ namespace WordUnscrambler
                 {
                     char[] charWord = word.ToCharArray();
 
-                    if (charScramble.Length == charWord.Length)
+                    if (charScramble.Length == charWord.Length && charWord.AreEqual(charScramble))
                     {
-                        Array.Sort(charScramble);
-                        Array.Sort(charWord);
-                        
-                        bool wordsMatch = true;
+                        BuildMatchedWord(scramble, word);
 
-                        for (int i = 0; i < charScramble.Length; i++)
-                        {
-                            if (charScramble[i] != charWord[i])
-                            {
-                                wordsMatch = false;
-                                break;
-                            }
-                        }
-
-                        if (wordsMatch)
-                        {
-                            BuildMatchedWord(scramble, word);
-                            
-                        }
                     }
                 }
             }
 
             MatchedWord BuildMatchedWord(string scrambledWord, string word)
             {
-                // Build a matched-word object here, so that you can return it.
+                //matched-word object
                 MatchedWord matchedWord = new MatchedWord();
                 matchedWord.ScrambledWord = scrambledWord;
                 matchedWord.Word = word; ;
-                matchedWords.Add(matchedWord); 
+                matchedWords.Add(matchedWord);
 
                 return matchedWord;
-               
+
             }
 
             return matchedWords;

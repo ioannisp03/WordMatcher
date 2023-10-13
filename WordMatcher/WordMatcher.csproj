@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionMethod.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="MatchedWord.cs" />
     <Compile Include="Program.cs" />
@@ -51,6 +52,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>String.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\string.fr-CA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>string.fr-CA.resx</DependentUpon>
     </Compile>
     <Compile Include="WordMatcher.cs" />
   </ItemGroup>

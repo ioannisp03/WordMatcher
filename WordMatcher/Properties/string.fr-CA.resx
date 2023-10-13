@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Continue" xml:space="preserve">
-    <value>Voulez vous continuez ? Y/N</value>
+    <value>Voulez vous continuez ? O/N</value>
   </data>
   <data name="Continue2" xml:space="preserve">
-    <value>Voulez vous continuez ? Y/N</value>
+    <value>Voulez vous continuez ? O/N</value>
   </data>
   <data name="F" xml:space="preserve">
     <value>Entrez le chemin complet incluant le nom du fichier :</value>
