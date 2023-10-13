@@ -8,8 +8,7 @@ namespace WordUnscrambler
 {
     class WordMatcher
     {
-        String word;
-        String scramble;
+       
         public List<MatchedWord> Match(string[] scrambledWords, string[] wordList)
         {
             List<MatchedWord> matchedWords = new List<MatchedWord>();
@@ -22,10 +21,9 @@ namespace WordUnscrambler
                 {
                     char[] charWord = word.ToCharArray();
 
-                    if (charScramble.Length == charWord.Length && charWord.AreEqual(charScramble))
+                    if (charWord.AreEqual(charScramble))
                     {
                         BuildMatchedWord(scramble, word);
-
                     }
                 }
             }
@@ -39,7 +37,6 @@ namespace WordUnscrambler
                 matchedWords.Add(matchedWord);
 
                 return matchedWord;
-
             }
 
             return matchedWords;

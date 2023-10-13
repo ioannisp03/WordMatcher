@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Threading;
 using System.Globalization;
-using System.IO;
-using System.Runtime.CompilerServices;
+
 
 namespace WordUnscrambler
 {
     class Program
     {
-
+        //Ioannis Panaritis
+        //Zach lelievre
         private static readonly FileReader _fileReader = new FileReader();
         private static readonly WordMatcher _wordMatcher = new WordMatcher();
 
@@ -57,22 +55,20 @@ namespace WordUnscrambler
                                 valid = true;
                                 break;
                             default:
-
                                 Console.WriteLine(Properties.String.Inputmatch);
                                 break;
                         }
                     }
 
-
                     Console.WriteLine(Properties.String.Continue);
                     string answer = Console.ReadLine().ToUpper();
 
-                    if (answer == "Y")
+                    if (answer == "Y" || answer == "O")
                     {
                         Console.WriteLine(Properties.String.Keep);
                         run = true;
                     }
-                    else if (answer == "N")
+                    else if (answer == "N" || answer =="O")
                     {
                         Console.WriteLine(Properties.String.Stop);
                         run = false;
@@ -81,17 +77,13 @@ namespace WordUnscrambler
                     {
                         Console.WriteLine(Properties.String.Continue2);
                     }
-
                 }
 
                 Console.ReadLine();
-
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(Properties.String.Terminated + ex.Message);
-
             }
         }
 
@@ -110,11 +102,8 @@ namespace WordUnscrambler
             // Split the user input into strings
             string[] inputStrings = userInput.Split(',');
 
-
             //send the array
             DisplayMatchedUnscrambledWords(inputStrings);
-
-
         }
 
         private static void DisplayMatchedUnscrambledWords(string[] scrambledWords)
